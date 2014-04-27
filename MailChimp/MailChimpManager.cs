@@ -1888,6 +1888,29 @@ namespace MailChimp
             return MakeAPICall<Clicks>(apiAction, args);
         }
 
+        /// <summary>
+        /// Retrieve click details of url.
+        /// </summary>
+        /// <param name="cId">the Campaign Id</param>
+        /// <param name="tId">the "tid" for the URL from reports/clicks</param>
+        /// <returns></returns>
+        public ClickDetail GetClickDetail(string cId, int tId)
+        {
+            //  Our api action:
+            string apiAction = "reports/click-detail";
+
+            //  Create our arguments object:
+            object args = new
+            {
+                apikey = this.APIKey,
+                cid = cId,
+                tid = tId
+            };
+
+            //  Make the call:
+            return MakeAPICall<ClickDetail>(apiAction, args);
+        }
+
         #endregion
 
         #region Generic API calling method
